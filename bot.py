@@ -1,8 +1,8 @@
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import Updater, CommandHandler
 import logging
 from dotenv import load_dotenv
 from requests import get
-from os import environ, getenv
+from os import getenv
 
 load_dotenv()
 
@@ -40,7 +40,7 @@ def read_url(bot, update):
     update.message.reply_text(message_text)
 
 
-def help(bot, update):
+def help_msg(bot, update):
     message_help = (
         "OWASP D4N155 🕵🏿️‍♂️\nis an information security audit tool that creates intelligent wordlists based on the content of the target page using OSINT.\n"
         "⚒Github: https://github.com/owasp/D4N155\n"
@@ -67,7 +67,7 @@ def main():
     dp.add_handler(CommandHandler("domain", domain))
     dp.add_handler(CommandHandler("text", read_text))
     dp.add_handler(CommandHandler("make", read_url))
-    dp.add_handler(CommandHandler("help", help))
+    dp.add_handler(CommandHandler("help", help_msg))
 
     updater.start_polling()
     updater.idle()
