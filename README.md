@@ -9,3 +9,7 @@ Make the `.env` and set `TOKEN` for you Telegram bot: ([Make a bot](https://core
 ```bash
 echo "TOKEN='xxxxxxxxxx'" > .env
 ```
+## Set crontab
+```bash
+60 *	* * *	root	python3 /root/dandara/collector.py
+```
